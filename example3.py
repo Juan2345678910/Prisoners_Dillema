@@ -1,4 +1,3 @@
-import random 
 ####
 # Each team's file must define four tokens:
 #     team_name: a string
@@ -7,10 +6,10 @@ import random
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = 'T13'
-strategy_name = 'Random but retaliate'
+team_name = 'E3'
+strategy_name = 'Collude but retaliate'
 strategy_description = '''\
-Random first round. Random, except in a round after getting 
+Collude first round. Collude, except in a round after getting 
 a severe punishment.'''
     
 def move(my_history, their_history, my_score, their_score):
@@ -24,9 +23,8 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b' for collude or betray.
     '''
     if len(my_history)==0: # It's the first round; collude.
-        return random.choice(move)
+        return 'c'
     elif my_history[-1]=='c' and their_history[-1]=='b':
         return 'b' # Betray if they were severely punished last time,
     else:
-        return random.choice(move) # otherwise collude.
-    
+        return 'c' # otherwise collude.
